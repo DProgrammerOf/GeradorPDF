@@ -1,0 +1,94 @@
+Modelo Nestle: FEITO!
+Modelo Jbs: FEITO!
+Modelo Hiper: FEITO!
+Modelo Carrefour: FEITO!
+
+Modelo Duracell: FEITO! (Falta Carimbo)
+(Desconsiderar Pagina 3, RECEITA)
+
+
+Parametros Para Renderização:
+
+Modelo Duracell - {
+  Empregado = Nome, RG, CPF, CTPS, PIS, Rua&N°, Bairro, Cidade, Estado, Cargo, PeriodoInicio, PeriodoFim
+  Empresa = Logomarca, Nome, Carimbo, Footer(ENDEREÇO COMPLETO)
+  Outros = Data
+}
+
+Modelo Carrefour - {
+  Empregado = Nome, RG, Cargo, CTPS
+  Empresa = Logomarca, Nome, Carimbo
+  Outros = Data
+}
+
+Modelo Nestle - {
+  Empregado = Nome, CTPS, RG
+  Empresa = Logo, Carimbo
+  Outros = Data
+}
+
+Modelo JBS - {
+  Empregado = Nome, RG
+  Empresa = Logo, Nome, Carimbo
+  Outros = Data
+
+
+  Modificações:
+  1. Logomarca (Da Coligada)
+  2. Data
+  3. Nome (Do Colaborador)
+  4. RG (Do Colaborador)
+  5. Nome (Da Empresa)
+  6. Carimbo (Da Coligada)
+}
+
+Modelo Hiper - {
+  Empregado = Nome, Nacionalidade, Status Social, RG, CTPS
+  Empresa = Nome, Rua&Nmr, Cidade, Estado, CNPJ/MF, Inscrição Estadual
+  Outros = Data
+}
+
+
+
+
+Endpoints API:
+
+Coligada = {
+  /api/coligadas:
+    GET     => Listagem,
+    POST    => Cadastro,
+    DELETE  => Apagar
+}
+
+ImagemUpload = {
+  /api/upload:
+    POST    => Upload Imagem
+}
+
+Colaborador = {
+  /api/colaboradores:
+    GET     => Listagem,
+    POST    => Cadastro (FEITO!),
+    DELETE  => Apagar
+}
+
+
+Funções do Site:
+
+- Coligadas: Cadastrar empresas coligadas, com suas informações, carimbo e logomarca no banco de dados. (FEITO)
+- Colaborador: Cadastrar empregados/colaboradores, com suas informações no banco de dados. (FEITO)
+- Cartas: Gerar modelos dos PDFs convertidos em HTML, com as informações de Coligadas, Empresa, Loja e Colaborador Informado. (NÃO FOI FEITO)
+
+
+@@@@@@@@@@@@@@@@@@ ATENÇÃO RESUMO PARA CONTINUAR DEPOIS @@@@@@@@@@@@@@@
+- DESENVOLVER A API PARA CADASTRO DE COLIGADAS COM UPLOAD DE 2 IMAGENS
+  (NO CADASTRO DE DADOS DE TEXTO FAZER NA API NORMAL DE COLIGADAS JÁ CRIADA) (FEITO!)
+  (NO UPLOAD DE IMAGEM FAZER UMA NOVA API APENAS PARA RECEBER OS ARQUIVOS E ATUALIZAR NA TABELA SEUS CAMINHOS) (FEITO!)
+
+- DESENVOLVER A API DE COLABORADORES E COLIGADAS PARA GET (PEGAR INFORMAÇÃO) E GERAR NA PÁGINA GERAR CARTAS
+  (NA API DE COLABORADORES CRIAR UM GET COM PARAMETRO PELO NOME OU RG, COMPATIBILIZANDO O CAMPO DE PESQUISA) (FEITO!)
+  (NA API DE COLIGADAS CRIAR UM GET SEM PARAMETRO, PARA LISTAR AS COLIGADAS NO CAMPO DE SELEÇÃO) (FEITO!)
+  (FAZER: GET[COLABORADOR] --> ONCLICKSEARCH[GUARDAR JSON GLOBAL] --> PRONTO PARA USO DAS PROPS) (FEITO!)
+
+- ARRUMAR OS PARAMETROS DOS MODELOS PARA AS INFORMAÇÕES QUE IRAM ENTRAR NA PROPS DO COMPONENTE
+  (COMEÇAR A ESTRUTURAR OS PROPS RECEBIDOS PARA MUDAR O CONTEUDO DO PDF) (FEITO!)
